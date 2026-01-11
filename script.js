@@ -10,38 +10,50 @@ const closeBtn = document.querySelector(".close");
 const guestButtons = document.querySelectorAll(".guest");
 
 // =========================
-// モーダルを開く
+// モーダルを開く関数
 // =========================
 
-guestButtons.forEach(button => {
-  button.addEventListener("click", () => {
-    modalName.textContent = button.dataset.name || "";
-    modalImg.src = button.dataset.img || "";
-    modalText.textContent = button.dataset.text || "";
+function openModal(button) {
+  modalName.textContent = button.dataset.name || "";
+  modalImg.src = button.dataset.img || "";
+  modalText.textContent = button.dataset.text || "";
 
-    modal.style.display = "block";
-    document.body.style.overflow = "hidden"; // 背景スクロール防止
-  });
-});
+  modal.style.display = "flex";
+  document.body.style.overflow = "hidden"; // 背景スクロール防止
+}
 
 // =========================
-// モーダルを閉じる
+// モーダルを閉じる関数
 // =========================
-
-// ×ボタン
-closeBtn.addEventListener("click", closeModal);
-
-// 背景タップ
-modal.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    closeModal();
-  }
-});
 
 function closeModal() {
   modal.style.display = "none";
   document.body.style.overflow = "";
 }
+
+// =========================
+// ゲストボタンのクリック
+// =========================
+
+guestButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    openModal(button);
+  });
+});
+
+// =========================
+// 閉じるイベント
+// =========================
+
+// ×ボタン
+closeBtn.addEventListener("click", closeModal);
+
+// 背景タップ（モーダル外のエリア）
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    closeModal();
+  }
+});
 
 // =========================
 // 画像がない場合の保険
