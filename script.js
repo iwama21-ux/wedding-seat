@@ -1,25 +1,52 @@
-const guests = document.querySelectorAll('.guest');
-const modal = document.getElementById('modal');
-const modalName = document.getElementById('modal-name');
-const modalImg = document.getElementById('modal-img');
-const modalText = document.getElementById('modal-text');
-const closeBtn = document.querySelector('.close');
+// =========================
+// 要素取得
+// =========================
 
-guests.forEach(guest => {
-  guest.addEventListener('click', () => {
-    modalName.textContent = guest.dataset.name;
-    modalImg.src = guest.dataset.img;
-    modalText.textContent = guest.dataset.text;
-    modal.style.display = 'block';
+const modal = document.getElementById("modal");
+const modalName = document.getElementById("modal-name");
+const modalImg = document.getElementById("modal-img");
+const modalText = document.getElementById("modal-text");
+const closeBtn = document.querySelector(".close");
+const guestButtons = document.querySelectorAll(".guest");
+
+// =========================
+// モーダルを開く
+// =========================
+
+guestButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    modalName.textContent = button.dataset.name || "";
+    modalImg.src = button.dataset.img || "";
+    modalText.textContent = button.dataset.text || "";
+
+    modal.style.display = "block";
+    document.body.style.overflow = "hidden"; // 背景スクロール防止
   });
 });
 
-closeBtn.addEventListener('click', () => {
-  modal.style.display = 'none';
+// =========================
+// モーダルを閉じる
+// =========================
+
+// ×ボタン
+closeBtn.addEventListener("click", closeModal);
+
+// 背景タップ
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    closeModal();
+  }
 });
 
-modal.addEventListener('click', (e) => {
-  if (e.target === modal) {
-    modal.style.display = 'none';
-  }
+function closeModal() {
+  modal.style.display = "none";
+  document.body.style.overflow = "";
+}
+
+// =========================
+// 画像がない場合の保険
+// =========================
+
+modalImg.addEventListener("error", () => {
+  modalImg.style.display = "none";
 });
