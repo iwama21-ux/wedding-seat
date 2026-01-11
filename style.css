@@ -59,9 +59,7 @@ h1 {
   transform: translate(-50%, -50%) scale(0.95);
 }
 
-/* =========================
-   モーダル背景
-========================= */
+/* ===== モーダル背景 ===== */
 
 .modal {
   display: none;
@@ -69,27 +67,45 @@ h1 {
   inset: 0;
   background: rgba(0, 0, 0, 0.6);
   z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
 }
 
+/* ===== モーダル本体 ===== */
 .modal-content {
-  position: fixed;
-  left: 0;
-  bottom: 0;
+  position: relative;
   width: 100%;
+  max-width: 400px;
   max-height: 90vh;
   overflow-y: auto;
   background: #fff;
-  border-radius: 16px 16px 0 0;
+  border-radius: 16px;
   padding: 20px;
-  transform: none !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
+.modal-content img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  font-size: 18px;
+  text-align: center;
+}
+
+/* ===== 閉じるボタン ===== */
 .close {
   position: absolute;
-  top: 12px;
-  right: 16px;
+  top: 8px;
+  right: 12px;
   font-size: 24px;
   cursor: pointer;
+  color: #777;
 }
+
 
 /
