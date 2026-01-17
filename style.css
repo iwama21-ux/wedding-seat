@@ -27,15 +27,17 @@ h1 {
   width: 100%;
   max-width: 480px;
   margin: 0 auto;
-  background: #fff; /* 余白色 */
+  background: #fff;
+  padding-top: 75%; /* 4:3比率で高さ確保 */
 }
 
 .seat-map img {
+  position: absolute;
+  top: 0; left: 0;
   width: 100%;
-  height: auto; /* 高さ自動で縦横比維持 */
-  display: block;
+  height: 100%;
+  object-fit: contain; /* 上下切れ防止 */
   border-radius: 12px;
-  object-fit: contain; /* 上下切れず全体表示 */
 }
 
 /* =========================
@@ -44,9 +46,9 @@ h1 {
 .guest {
   position: absolute;
   transform: translate(-50%, -50%);
-  z-index: 10; /* 画像の上に表示 */
-  padding: 6px 10px;
-  font-size: 12px;
+  z-index: 10;
+  padding: 0.5rem 0.8rem;
+  font-size: 0.8rem;
   border-radius: 6px;
   border: none;
   background: rgba(255, 255, 255, 0.85);
@@ -136,17 +138,4 @@ h1 {
 
 .guest-in-seat:hover {
   background: #f0f0f0;
-}
-
-/* =========================
-   モバイル対応
-========================= */
-@media (max-width: 480px) {
-  .guest {
-    font-size: 10px;
-    padding: 4px 6px;
-  }
-  .guest-in-seat {
-    font-size: 12px;
-  }
 }
