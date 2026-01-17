@@ -3,28 +3,46 @@
 // =========================
 
 const modal = document.getElementById("modal");
+const closeBtn = document.querySelector(".close");
+
+const seatView = document.querySelector(".seat-view");
+const guestView = document.querySelector(".guest-view");
+
 const modalName = document.getElementById("modal-name");
 const modalImg = document.getElementById("modal-img");
 const modalText = document.getElementById("modal-text");
-const closeBtn = document.querySelector(".close");
-const guestButtons = document.querySelectorAll(".guest");
+
+const tableButtons = document.querySelectorAll(".guest");
+const guestButtons = document.querySelectorAll(".guest-in-seat");
+const backBtn = document.querySelector(".back");
 
 // =========================
-// モーダルを開く関数
+// 表示切り替え
 // =========================
 
-function openModal(button) {
+function showSeatView() {
+  seatView.classList.remove("is-hidden");
+  guestView.classList.add("is-hidden");
+}
+
+function showGuestView(button) {
   modalName.textContent = button.dataset.name || "";
   modalImg.src = button.dataset.img || "";
-  modalText.textContent = button.dataset.text || "";
+  modalText.innerHTML = button.dataset.text || "";
 
-  modal.style.display = "flex";
-  document.body.style.overflow = "hidden"; // 背景スクロール防止
+  seatView.classList.add("is-hidden");
+  guestView.classList.remove("is-hidden");
 }
 
 // =========================
-// モーダルを閉じる関数
+// モーダル制御
 // =========================
+
+function openModal() {
+  showSeatView();
+  modal.style.display = "flex";
+  document.body.style.overflow = "hidden";
+}
 
 function closeModal() {
   modal.style.display = "none";
@@ -32,33 +50,31 @@ function closeModal() {
 }
 
 // =========================
-// ゲストボタンのクリック
+// イベント
 // =========================
 
-guestButtons.forEach(button => {
-  button.addEventListener("click", () => {
-    openModal(button);
+// 席番号クリック
+tableButtons.forEach(btn => {
+  btn.addEventListener("click", openModal);
+});
+
+// 席内の名前クリック
+guestButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    showGuestView(btn);
   });
 });
 
-// =========================
-// 閉じるイベント
-// =========================
+// 戻る
+backBtn.addEventListener("click", showSeatView);
 
-// ×ボタン
+// 閉じる
 closeBtn.addEventListener("click", closeModal);
-
-// 背景タップ（モーダル外のエリア）
-modal.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    closeModal();
-  }
+modal.addEventListener("click", e => {
+  if (e.target === modal) closeModal();
 });
 
-// =========================
-// 画像がない場合の保険
-// =========================
-
+// 画像がない場合
 modalImg.addEventListener("error", () => {
   modalImg.style.display = "none";
 });
