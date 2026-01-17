@@ -38,7 +38,8 @@ const tables = [
 let buttonsGenerated = false;
 
 // =========================
-// テーブルボタン生成（固定2列）
+// テーブルボタン生成（固定2列配置）
+// =========================
 function generateTableButtons() {
   // 既存ボタン削除
   seatMap.querySelectorAll(".guest").forEach(btn => btn.remove());
@@ -66,6 +67,7 @@ function generateTableButtons() {
 
 // =========================
 // モーダル表示
+// =========================
 function openModal(table) {
   seatView.classList.remove("is-hidden");
   guestView.classList.add("is-hidden");
@@ -89,6 +91,7 @@ function openModal(table) {
 
 // =========================
 // 個人紹介表示
+// =========================
 function showGuestView(button) {
   modalName.textContent = button.dataset.name || "";
   modalText.innerHTML = button.dataset.text || "";
@@ -111,6 +114,7 @@ function showGuestView(button) {
 
 // =========================
 // モーダル制御
+// =========================
 closeBtn.addEventListener("click", () => {
   modal.style.display = "none";
   document.body.style.overflow = "";
@@ -128,14 +132,16 @@ modal.addEventListener("click", e => {
 
 // =========================
 // 初期化
+// =========================
 function initSeatButtons() {
   if (buttonsGenerated) return;
-  if (!seatMapImg.complete || seatMapImg.naturalHeight === 0) {
-    setTimeout(initSeatButtons, 50);
-    return;
-  }
   generateTableButtons();
   buttonsGenerated = true;
 }
 
-document.addEventListener("DOMContentLoaded", initSeatButtons);
+// 画像ロード完了後に初期化（スマホ対応）
+if (seatMapImg.complete) {
+  initSeatButtons();
+} else {
+  seatMapImg.addEventListener("load", initSeatButtons);
+}
