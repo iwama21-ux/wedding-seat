@@ -26,11 +26,14 @@ h1 {
   position: relative; /* ボタン配置用の基準 */
   width: 100%;
   max-width: 480px;
+  aspect-ratio: 4/3; /* 画像の比率に合わせて高さ固定 */
   margin: 0 auto;
 }
 
 .seat-map img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
   border-radius: 12px;
 }
@@ -133,4 +136,17 @@ h1 {
 
 .guest-in-seat:hover {
   background: #f0f0f0;
+}
+
+/* =========================
+   モバイル対応
+========================= */
+@media (max-width: 480px) {
+  .guest {
+    font-size: 10px;
+    padding: 4px 6px;
+  }
+  .guest-in-seat {
+    font-size: 12px;
+  }
 }
