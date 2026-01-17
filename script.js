@@ -31,28 +31,19 @@ function showGuestView(button) {
 
   const imgSrc = button.dataset.img;
 
-  // -------------------------
-  // 画像リセット（表示状態も初期化）
-  // -------------------------
+  // 画像リセット
   modalImg.onload = null;
   modalImg.onerror = null;
   modalImg.style.display = "none";
   modalImg.src = "";
 
   if (imgSrc) {
-    // -------------------------
-    // 画像イベント登録（src 設定前）
-    // -------------------------
     modalImg.onload = () => {
-      modalImg.style.display = "block";  // 成功したら表示
+      modalImg.style.display = "block";
     };
     modalImg.onerror = () => {
-      modalImg.style.display = "none";   // 失敗したら非表示
+      modalImg.style.display = "none";
     };
-
-    // -------------------------
-    // src を最後に設定（重要）
-    // -------------------------
     modalImg.src = imgSrc;
   }
 
@@ -79,27 +70,11 @@ function closeModal() {
 // イベント設定
 // =========================
 
-// テーブルクリック
-tableButtons.forEach(btn => {
-  btn.addEventListener("click", openModal);
-});
-
-// 名前クリック
-guestButtons.forEach(btn => {
-  btn.addEventListener("click", () => {
-    showGuestView(btn);
-  });
-});
-
-// 席に戻る
+tableButtons.forEach(btn => btn.addEventListener("click", openModal));
+guestButtons.forEach(btn => btn.addEventListener("click", () => showGuestView(btn)));
 backBtn.addEventListener("click", showSeatView);
 
-// 閉じる（×）
 closeBtn.addEventListener("click", closeModal);
-
-// モーダル背景クリックで閉じる
 modal.addEventListener("click", e => {
-  if (e.target === modal) {
-    closeModal();
-  }
+  if (e.target === modal) closeModal();
 });
