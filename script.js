@@ -114,7 +114,6 @@ function showGuestView(button) {
 
 // =========================
 // モーダル制御
-// =========================
 closeBtn.addEventListener("click", () => {
   modal.style.display = "none";
   document.body.style.overflow = "";
@@ -139,9 +138,5 @@ function initSeatButtons() {
   buttonsGenerated = true;
 }
 
-// 画像ロード完了後に初期化（スマホ対応）
-if (seatMapImg.complete) {
-  initSeatButtons();
-} else {
-  seatMapImg.addEventListener("load", initSeatButtons);
-}
+// 画像ロードを待たずに生成（スマホでも表示される）
+initSeatButtons();
