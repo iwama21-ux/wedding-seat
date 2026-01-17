@@ -1,7 +1,6 @@
 /* =========================
    全体共通
 ========================= */
-
 * {
   box-sizing: border-box;
 }
@@ -23,7 +22,6 @@ h1 {
 /* =========================
    座席表エリア
 ========================= */
-
 .seat-map {
   position: relative;
   width: 100%;
@@ -38,9 +36,8 @@ h1 {
 }
 
 /* =========================
-   氏名ボタン（画像の上）
+   テーブルボタン
 ========================= */
-
 .guest {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -62,7 +59,6 @@ h1 {
 /* =========================
    モーダル
 ========================= */
-
 .modal {
   display: none;
   position: fixed;
@@ -116,4 +112,23 @@ h1 {
 /* 席と個人紹介の切替 */
 .guest-view.is-hidden {
   display: none;
+}
+
+/* =========================
+   ゲストボタン
+========================= */
+.guest-in-seat {
+  display: block;
+  width: 100%;
+  padding: 6px 10px;
+  margin-bottom: 6px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fefefe;
+  cursor: pointer;
+  text-align: left;
+}
+.guest-in-seat:hover {
+  background: #f0f0f0;
 }
