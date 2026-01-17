@@ -25,14 +25,31 @@ function showSeatView() {
   guestView.classList.add("is-hidden");
 }
 
+// ★ 安定版 個人表示
 function showGuestView(button) {
   modalName.textContent = button.dataset.name || "";
-
-  // ★ 必ず表示状態をリセットする（重要）
-  modalImg.style.display = "block";
-  modalImg.src = button.dataset.img || "";
-
   modalText.innerHTML = button.dataset.text || "";
+
+  // ① いったん画像をリセット
+  modalImg.style.display = "none";
+  modalImg.src = "";
+
+  const imgSrc = button.dataset.img;
+
+  if (imgSrc) {
+    // ② 読み込み成功時
+    modalImg.onload = () => {
+      modalImg.style.display = "block";
+    };
+
+    // ③ 読み込み失敗時
+    modalImg.onerror = () => {
+      modalImg.style.display = "none";
+    };
+
+    // ④ src を最後にセット（重要）
+    modalImg.src = imgSrc;
+  }
 
   seatView.classList.add("is-hidden");
   guestView.classList.remove("is-hidden");
@@ -57,35 +74,25 @@ function closeModal() {
 // イベント設定
 // =========================
 
-// 席番号クリック（テーブルを開く）
+// テーブルクリック
 tableButtons.forEach(btn => {
   btn.addEventListener("click", openModal);
 });
 
-// 席内の名前クリック（個人紹介）
+// 名前クリック
 guestButtons.forEach(btn => {
   btn.addEventListener("click", () => {
     showGuestView(btn);
   });
 });
 
-// 「席に戻る」
+// 戻る
 backBtn.addEventListener("click", showSeatView);
 
-// 閉じる（×）
+// 閉じる
 closeBtn.addEventListener("click", closeModal);
-
-// 背景クリックで閉じる
 modal.addEventListener("click", e => {
   if (e.target === modal) {
     closeModal();
   }
-});
-
-// =========================
-// 画像が読み込めなかった場合
-// =========================
-
-modalImg.addEventListener("error", () => {
-  modalImg.style.display = "none";
 });
