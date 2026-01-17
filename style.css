@@ -28,7 +28,7 @@ h1 {
   max-width: 480px;
   margin: 0 auto;
   background: #fff;
-  padding-top: 75%; /* 4:3比率で高さ確保 */
+  padding-top: 75%; /* 縦横比 4:3固定、高さ確保 */
 }
 
 .seat-map img {
