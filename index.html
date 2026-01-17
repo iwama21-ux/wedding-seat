@@ -1,47 +1,34 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>結婚式 座席表</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<h1>ご列席者様 座席表</h1>
-
-<div class="seat-map">
-  <img src="images/seat.png" alt="座席表">
-
-  <!-- 名前ボタン（画像の上に配置） -->
-  <button class="guest"
-    style="top: 35%; left: 20%;"
-    data-name="田中 太郎"
-    data-img="images/tanaka.jpg"
-    data-text="新郎の大学時代の友人です。テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト<br><br>テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト">
-    田中 太郎
-  </button>
-
-  <button class="guest"
-    style="top: 35%; left: 55%;"
-    data-name="鈴木 花子"
-    data-img="images/test.png"
-    data-text="新婦の会社の先輩ですテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト<br><br>テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト">
-    鈴木 花子
-  </button>
-</div>
-
-
 <!-- モーダル -->
 <div class="modal" id="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
-    <h2 id="modal-name"></h2>
-    <img id="modal-img" src="" alt="">
-    <p id="modal-text"></p>
+
+    <!-- 席表示 -->
+    <div class="seat-view">
+      <h2>テーブルA</h2>
+      <p>お名前をタップしてください</p>
+
+      <button class="guest-in-seat"
+        data-name="田中 太郎"
+        data-img="images/tanaka.jpg"
+        data-text="新郎の大学時代の友人です。">
+        田中 太郎
+      </button>
+
+      <button class="guest-in-seat"
+        data-name="鈴木 花子"
+        data-img="images/test.png"
+        data-text="新婦の会社の先輩です。">
+        鈴木 花子
+      </button>
+    </div>
+
+    <!-- 個人紹介 -->
+    <div class="guest-view is-hidden">
+      <button class="back">← 席に戻る</button>
+      <h2 id="modal-name"></h2>
+      <img id="modal-img" src="" alt="">
+      <p id="modal-text"></p>
+    </div>
   </div>
 </div>
-
-<script src="script.js"></script>
-</body>
-</html>
