@@ -23,7 +23,7 @@ h1 {
    座席表エリア
 ========================= */
 .seat-map {
-  position: relative;
+  position: relative; /* ボタン配置用の基準 */
   width: 100%;
   max-width: 480px;
   margin: 0 auto;
@@ -41,6 +41,7 @@ h1 {
 .guest {
   position: absolute;
   transform: translate(-50%, -50%);
+  z-index: 10; /* 画像の上に表示 */
   padding: 6px 10px;
   font-size: 12px;
   border-radius: 6px;
@@ -129,6 +130,7 @@ h1 {
   cursor: pointer;
   text-align: left;
 }
+
 .guest-in-seat:hover {
   background: #f0f0f0;
 }
