@@ -1,3 +1,5 @@
+HTML
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -12,6 +14,11 @@
 
 <div class="seat-map">
   <img src="images/seat.png" alt="座席表">
+
+  <!-- 席番号（例） -->
+  <button class="guest" style="top:35%; left:40%;">
+    テーブルA
+  </button>
 </div>
 
 <!-- モーダル -->
@@ -21,9 +28,22 @@
 
     <!-- 席表示 -->
     <div class="seat-view">
-      <h2>テーブル</h2>
+      <h2>テーブルA</h2>
       <p>お名前をタップしてください</p>
-      <div class="guest-buttons"></div>
+
+      <button class="guest-in-seat"
+        data-name="田中 太郎"
+        data-img="images/tanaka.jpg"
+        data-text="新郎の大学時代の友人です。テストテストテスト">
+        田中 太郎
+      </button>
+
+      <button class="guest-in-seat"
+        data-name="鈴木 花子"
+        data-img="images/test.png"
+        data-text="新婦の会社の先輩です。テストテストテスト">
+        鈴木 花子
+      </button>
     </div>
 
     <!-- 個人紹介 -->
