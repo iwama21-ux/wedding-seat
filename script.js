@@ -35,30 +35,107 @@ const tables = [
   }))
 ];
 
-const usedPositions = [];
-let buttonsGenerated = false; // 重複生成防止
+let buttonsGenerated = false;
 
 // =========================
-// 座標生成（画像内ランダム）
-function generatePosition() {
-  let top, left, tries = 0;
-  do {
-    top = Math.random() * 0.5 + 0.25;   // 25%〜75%
-    left = Math.random() * 0.6 + 0.2;   // 20%〜80%
-    tries++;
-    if (tries > 50) break;
-  } while (usedPositions.some(p => Math.abs(p.top-top)<0.08 && Math.abs(p.left-left)<0.08));
-  usedPositions.push({top, left});
-  return {top, left};
+// テーブルボタン生成（固定2列）
+function generateTableButtons() {
+  // 既存ボタン削除
+  seatMap.querySelectorAll(".guest").forEach(btn => btn.remove());
+
+  const cols = 2;
+  const rows = Math.ceil(tables.length / cols);
+  const leftPositions = ["30%", "70%"];
+  const topGap = 80 / (rows + 1); // 上下余白10%ずつ
+
+  tables.forEach((table, index) => {
+    const btn = document.createElement("button");
+    btn.classList.add("guest");
+    btn.textContent = table.name;
+
+    const col = index % cols;
+    const row = Math.floor(index / cols);
+
+    btn.style.left = leftPositions[col];
+    btn.style.top = `${10 + topGap * (row + 1)}%`;
+
+    seatMap.appendChild(btn);
+    btn.addEventListener("click", () => openModal(table));
+  });
 }
 
 // =========================
-// テーブルボタン生成
-function generateTableButtons() {
-  // 既存のボタン削除
-  seatMap.querySelectorAll(".guest").forEach(btn => btn.remove());
-  usedPositions.length = 0;
+// モーダル表示
+function openModal(table) {
+  seatView.classList.remove("is-hidden");
+  guestView.classList.add("is-hidden");
+  modal.style.display = "flex";
+  document.body.style.overflow = "hidden";
 
-  tables.forEach(table => {
-    const btn = document.createElement("button");
-    btn.classList
+  seatView.querySelector("h2").textContent = table.name;
+  guestButtonsContainer.innerHTML = "";
+
+  table.guests.forEach(guest => {
+    const gBtn = document.createElement("button");
+    gBtn.classList.add("guest-in-seat");
+    gBtn.textContent = guest.name;
+    gBtn.dataset.name = guest.name;
+    gBtn.dataset.img = guest.img || "";
+    gBtn.dataset.text = guest.text || "";
+    gBtn.addEventListener("click", () => showGuestView(gBtn));
+    guestButtonsContainer.appendChild(gBtn);
+  });
+}
+
+// =========================
+// 個人紹介表示
+function showGuestView(button) {
+  modalName.textContent = button.dataset.name || "";
+  modalText.innerHTML = button.dataset.text || "";
+
+  const imgSrc = button.dataset.img;
+  modalImg.onload = null;
+  modalImg.onerror = null;
+  modalImg.style.display = "none";
+  modalImg.src = "";
+
+  if (imgSrc) {
+    modalImg.onload = () => modalImg.style.display = "block";
+    modalImg.onerror = () => modalImg.style.display = "none";
+    modalImg.src = imgSrc;
+  }
+
+  seatView.classList.add("is-hidden");
+  guestView.classList.remove("is-hidden");
+}
+
+// =========================
+// モーダル制御
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+  document.body.style.overflow = "";
+});
+backBtn.addEventListener("click", () => {
+  seatView.classList.remove("is-hidden");
+  guestView.classList.add("is-hidden");
+});
+modal.addEventListener("click", e => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+    document.body.style.overflow = "";
+  }
+});
+
+// =========================
+// 初期化
+function initSeatButtons() {
+  if (buttonsGenerated) return;
+  if (!seatMapImg.complete || seatMapImg.naturalHeight === 0) {
+    setTimeout(initSeatButtons, 50);
+    return;
+  }
+  generateTableButtons();
+  buttonsGenerated = true;
+}
+
+document.addEventListener("DOMContentLoaded", initSeatButtons);
