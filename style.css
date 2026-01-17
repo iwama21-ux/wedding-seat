@@ -23,10 +23,10 @@ h1 {
    座席表エリア
 ========================= */
 .seat-map {
-  position: relative; /* ボタン配置用の基準 */
+  position: relative; /* ボタン配置の基準 */
   width: 100%;
   max-width: 480px;
-  aspect-ratio: 4/3; /* 画像の比率に合わせて高さ固定 */
+  aspect-ratio: 4/3; /* 画像比率固定 */
   margin: 0 auto;
 }
 
