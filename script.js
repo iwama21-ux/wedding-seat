@@ -36,6 +36,7 @@ const tables = [
 ];
 
 const usedPositions = [];
+let buttonsGenerated = false; // 重複生成防止
 
 // =========================
 // 座標生成（画像内ランダム）
@@ -54,93 +55,10 @@ function generatePosition() {
 // =========================
 // テーブルボタン生成
 function generateTableButtons() {
+  // 既存のボタン削除
+  seatMap.querySelectorAll(".guest").forEach(btn => btn.remove());
+  usedPositions.length = 0;
+
   tables.forEach(table => {
     const btn = document.createElement("button");
-    btn.classList.add("guest");
-    btn.textContent = table.name;
-
-    const pos = generatePosition();
-    btn.style.top = `${pos.top*100}%`;
-    btn.style.left = `${pos.left*100}%`;
-
-    seatMap.appendChild(btn);
-    btn.addEventListener("click", () => openModal(table));
-  });
-}
-
-// =========================
-// モーダル表示
-function openModal(table) {
-  seatView.classList.remove("is-hidden");
-  guestView.classList.add("is-hidden");
-  modal.style.display = "flex";
-  document.body.style.overflow = "hidden";
-
-  seatView.querySelector("h2").textContent = table.name;
-  guestButtonsContainer.innerHTML = "";
-
-  table.guests.forEach(guest => {
-    const gBtn = document.createElement("button");
-    gBtn.classList.add("guest-in-seat");
-    gBtn.textContent = guest.name;
-    gBtn.dataset.name = guest.name;
-    gBtn.dataset.img = guest.img || "";
-    gBtn.dataset.text = guest.text || "";
-    gBtn.addEventListener("click", () => showGuestView(gBtn));
-    guestButtonsContainer.appendChild(gBtn);
-  });
-}
-
-// =========================
-// 個人紹介表示
-function showGuestView(button) {
-  modalName.textContent = button.dataset.name || "";
-  modalText.innerHTML = button.dataset.text || "";
-
-  const imgSrc = button.dataset.img;
-  modalImg.onload = null;
-  modalImg.onerror = null;
-  modalImg.style.display = "none";
-  modalImg.src = "";
-
-  if (imgSrc) {
-    modalImg.onload = () => modalImg.style.display = "block";
-    modalImg.onerror = () => modalImg.style.display = "none";
-    modalImg.src = imgSrc;
-  }
-
-  seatView.classList.add("is-hidden");
-  guestView.classList.remove("is-hidden");
-}
-
-// =========================
-// モーダル制御
-closeBtn.addEventListener("click", () => {
-  modal.style.display = "none";
-  document.body.style.overflow = "";
-});
-backBtn.addEventListener("click", () => {
-  seatView.classList.remove("is-hidden");
-  guestView.classList.add("is-hidden");
-});
-modal.addEventListener("click", e => {
-  if (e.target === modal) {
-    modal.style.display = "none";
-    document.body.style.overflow = "";
-  }
-});
-
-// =========================
-// 画像ロード完了後にテーブル生成（スマホ対応）
-function initSeatButtons() {
-  function generateButtonsSafe() {
-    if (!seatMapImg.complete || seatMapImg.naturalHeight === 0) {
-      setTimeout(generateButtonsSafe, 50);
-      return;
-    }
-    generateTableButtons();
-  }
-  generateButtonsSafe();
-}
-
-document.addEventListener("DOMContentLoaded", initSeatButtons);
+    btn.classList
