@@ -25,29 +25,34 @@ function showSeatView() {
   guestView.classList.add("is-hidden");
 }
 
-// ★ 安定版 個人表示
 function showGuestView(button) {
   modalName.textContent = button.dataset.name || "";
   modalText.innerHTML = button.dataset.text || "";
 
-  // ① いったん画像をリセット
+  const imgSrc = button.dataset.img;
+
+  // -------------------------
+  // 画像リセット（表示状態も初期化）
+  // -------------------------
+  modalImg.onload = null;
+  modalImg.onerror = null;
   modalImg.style.display = "none";
   modalImg.src = "";
 
-  const imgSrc = button.dataset.img;
-
   if (imgSrc) {
-    // ② 読み込み成功時
+    // -------------------------
+    // 画像イベント登録（src 設定前）
+    // -------------------------
     modalImg.onload = () => {
-      modalImg.style.display = "block";
+      modalImg.style.display = "block";  // 成功したら表示
     };
-
-    // ③ 読み込み失敗時
     modalImg.onerror = () => {
-      modalImg.style.display = "none";
+      modalImg.style.display = "none";   // 失敗したら非表示
     };
 
-    // ④ src を最後にセット（重要）
+    // -------------------------
+    // src を最後に設定（重要）
+    // -------------------------
     modalImg.src = imgSrc;
   }
 
@@ -86,11 +91,13 @@ guestButtons.forEach(btn => {
   });
 });
 
-// 戻る
+// 席に戻る
 backBtn.addEventListener("click", showSeatView);
 
-// 閉じる
+// 閉じる（×）
 closeBtn.addEventListener("click", closeModal);
+
+// モーダル背景クリックで閉じる
 modal.addEventListener("click", e => {
   if (e.target === modal) {
     closeModal();
