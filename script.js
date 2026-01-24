@@ -1,17 +1,52 @@
 // =========================
-// ゲストデータ（仮）
+// ゲストデータ（A〜Hテーブル・歴代総理大臣仮データ）
 // =========================
 
-const tables = {};
-const TABLE_NAMES = ["A","B","C","D","E","F","G","H","I"];
-
-TABLE_NAMES.forEach(table => {
-  tables[table] = Array.from({ length: 8 }, (_, i) => ({
-    name: `ゲスト${i + 1}`,
-    img: "", // 画像があればここにパス
-    text: `${table}テーブルのゲスト${i + 1}です。`
-  }));
-});
+const tables = {
+  "A": [
+    { name: "伊藤 博文", relation: "歴代総理", img: "", description: "日本初代総理大臣です。" },
+    { name: "黒田 清隆", relation: "歴代総理", img: "", description: "明治時代の総理です。" },
+    { name: "山縣 有朋", relation: "歴代総理", img: "", description: "明治期の政治家です。" }
+  ],
+  "B": [
+    { name: "松方 正義", relation: "歴代総理", img: "", description: "明治期の総理です。" },
+    { name: "大隈 重信", relation: "歴代総理", img: "", description: "大正期の総理です。" },
+    { name: "西園寺 公望", relation: "歴代総理", img: "", description: "明治から大正にかけての総理です。" },
+    { name: "桂 太郎", relation: "歴代総理", img: "", description: "日露戦争期の総理です。" }
+  ],
+  "C": [
+    { name: "山本 権兵衛", relation: "歴代総理", img: "", description: "第一次世界大戦期の総理です。" },
+    { name: "寺内 正毅", relation: "歴代総理", img: "", description: "大正期の軍人総理です。" }
+  ],
+  "D": [
+    { name: "原 敬", relation: "歴代総理", img: "", description: "政党内閣を築いた総理です。" },
+    { name: "田中 義一", relation: "歴代総理", img: "", description: "昭和初期の総理です。" },
+    { name: "濱口 雄幸", relation: "歴代総理", img: "", description: "昭和初期の内閣総理大臣です。" }
+  ],
+  "E": [
+    { name: "若槻 禮次郎", relation: "歴代総理", img: "", description: "昭和期の総理です。" },
+    { name: "犬養 毅", relation: "歴代総理", img: "", description: "昭和初期の総理で暗殺されました。" },
+    { name: "斎藤 実", relation: "歴代総理", img: "", description: "昭和初期の総理です。" },
+    { name: "岡田 啓介", relation: "歴代総理", img: "", description: "昭和初期の総理です。" },
+    { name: "広田 弘毅", relation: "歴代総理", img: "", description: "昭和初期の総理です。" }
+  ],
+  "F": [
+    { name: "林 銑十郎", relation: "歴代総理", img: "", description: "昭和初期の総理です。" },
+    { name: "近衛 文麿", relation: "歴代総理", img: "", description: "昭和期の総理です。" }
+  ],
+  "G": [
+    { name: "東久邇宮 稔彦王", relation: "歴代総理", img: "", description: "昭和20年の短期総理です。" },
+    { name: "幣原 喜重郎", relation: "歴代総理", img: "", description: "戦後初期の総理です。" },
+    { name: "吉田 茂", relation: "歴代総理", img: "", description: "戦後の総理として有名です。" }
+  ],
+  "H": [
+    { name: "鳩山 一郎", relation: "歴代総理", img: "", description: "戦後の総理です。" },
+    { name: "岸 信介", relation: "歴代総理", img: "", description: "昭和後期の総理です。" },
+    { name: "池田 勇人", relation: "歴代総理", img: "", description: "高度経済成長期の総理です。" },
+    { name: "佐藤 栄作", relation: "歴代総理", img: "", description: "昭和後期の総理です。" },
+    { name: "田中 角栄", relation: "歴代総理", img: "", description: "昭和期の総理です。" }
+  ]
+};
 
 // =========================
 // 要素取得
@@ -46,7 +81,10 @@ function showSeatView() {
 
 function showGuestView(guest) {
   modalName.textContent = guest.name;
-  modalText.textContent = guest.text;
+  modalText.innerHTML = `
+    <p><strong>関係性:</strong> ${guest.relation}</p>
+    <p>${guest.description}</p>
+  `;
 
   modalImg.style.display = "none";
   modalImg.src = "";
@@ -75,7 +113,9 @@ function openTable(tableId) {
   tableTitle.textContent = `テーブル${tableId}`;
   guestList.innerHTML = "";
 
-  tables[tableId].forEach(guest => {
+  const guests = tables[tableId] || [];
+
+  guests.forEach(guest => {
     const btn = document.createElement("button");
     btn.textContent = guest.name;
     btn.addEventListener("click", () => showGuestView(guest));
