@@ -9,7 +9,7 @@ const TABLE_NAMES = ["A","B","C","D","E","F","G","H","I"];
 TABLE_NAMES.forEach(table => {
   tables[table] = Array.from({ length: 8 }, (_, i) => ({
     name: `ゲスト${i + 1}`,
-    img: "",
+    img: "", // 画像があればパスを入れる
     text: `${table}テーブルのゲスト${i + 1}です。`
   }));
 });
@@ -38,6 +38,11 @@ const backBtn = document.querySelector(".back");
 function showSeatView() {
   seatView.classList.remove("is-hidden");
   guestView.classList.add("is-hidden");
+
+  // 全てのゲストボタンを再表示
+  document.querySelectorAll('#guest-list button').forEach(btn => {
+    btn.style.display = 'block';
+  });
 }
 
 function showGuestView(guest) {
@@ -51,6 +56,13 @@ function showGuestView(guest) {
     modalImg.onload = () => modalImg.style.display = "block";
     modalImg.src = guest.img;
   }
+
+  // 他のゲストボタンを非表示
+  document.querySelectorAll('#guest-list button').forEach(btn => {
+    if (btn.textContent !== guest.name) {
+      btn.style.display = 'none';
+    }
+  });
 
   seatView.classList.add("is-hidden");
   guestView.classList.remove("is-hidden");
@@ -82,7 +94,7 @@ function closeModal() {
 }
 
 // =========================
-// イベント
+// イベント登録
 // =========================
 
 document.querySelectorAll(".table").forEach(btn => {
