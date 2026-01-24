@@ -11,18 +11,17 @@
 <h1>ご列席者様 座席表</h1>
 
 <div class="seat-map">
-  <img src="images/seat.png" alt="座席表">
 
-  <!-- テーブルボタン -->
-  <button class="table" data-table="A" style="top:20%; left:20%;">テーブルA</button>
-  <button class="table" data-table="B" style="top:20%; left:60%;">テーブルB</button>
-  <button class="table" data-table="C" style="top:40%; left:20%;">テーブルC</button>
-  <button class="table" data-table="D" style="top:40%; left:60%;">テーブルD</button>
-  <button class="table" data-table="E" style="top:60%; left:20%;">テーブルE</button>
-  <button class="table" data-table="F" style="top:60%; left:60%;">テーブルF</button>
-  <button class="table" data-table="G" style="top:80%; left:20%;">テーブルG</button>
-  <button class="table" data-table="H" style="top:80%; left:60%;">テーブルH</button>
-  <button class="table" data-table="I" style="top:50%; left:40%;">テーブルI</button>
+  <!-- テーブルボタン画像 -->
+  <button class="table" data-table="A" style="top:10%; left:10%; background-image: url('images/tableA.png');"></button>
+  <button class="table" data-table="B" style="top:10%; left:30%; background-image: url('images/tableA.png');"></button>
+  <button class="table" data-table="C" style="top:10%; left:50%; background-image: url('images/tableA.png');"></button>
+  <button class="table" data-table="D" style="top:10%; left:70%; background-image: url('images/tableA.png');"></button>
+  <button class="table" data-table="E" style="top:40%; left:20%; background-image: url('images/tableA.png');"></button>
+  <button class="table" data-table="F" style="top:40%; left:50%; background-image: url('images/tableA.png');"></button>
+  <button class="table" data-table="G" style="top:70%; left:30%; background-image: url('images/tableA.png');"></button>
+  <button class="table" data-table="H" style="top:70%; left:60%; background-image: url('images/tableA.png');"></button>
+
 </div>
 
 <!-- モーダル -->
@@ -32,9 +31,7 @@
 
     <!-- 席表示 -->
     <div class="seat-view">
-      <h2 id="table-title"></h2>
-      <p>お名前をタップしてください</p>
-
+      <h2 id="table-title">テーブル</h2>
       <div id="guest-list"></div>
     </div>
 
