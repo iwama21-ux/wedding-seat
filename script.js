@@ -1,4 +1,18 @@
+// =========================
+// ゲストデータ（ここを編集）
+// =========================
 
+const tables = {};
+
+const TABLE_NAMES = ["A","B","C","D","E","F","G","H","I"];
+
+TABLE_NAMES.forEach(table => {
+  tables[table] = Array.from({ length: 8 }, (_, i) => ({
+    name: `ゲスト${i + 1}`,
+    img: "",
+    text: `${table}テーブルのゲスト${i + 1}です。`
+  }));
+});
 
 // =========================
 // 要素取得
@@ -6,6 +20,8 @@
 
 const modal = document.getElementById("modal");
 const closeBtn = document.querySelector(".close");
+const tableTitle = document.getElementById("table-title");
+const guestList = document.getElementById("guest-list");
 
 const seatView = document.querySelector(".seat-view");
 const guestView = document.querySelector(".guest-view");
@@ -13,9 +29,6 @@ const guestView = document.querySelector(".guest-view");
 const modalName = document.getElementById("modal-name");
 const modalImg = document.getElementById("modal-img");
 const modalText = document.getElementById("modal-text");
-
-const tableButtons = document.querySelectorAll(".guest");
-const guestButtons = document.querySelectorAll(".guest-in-seat");
 const backBtn = document.querySelector(".back");
 
 // =========================
@@ -27,26 +40,16 @@ function showSeatView() {
   guestView.classList.add("is-hidden");
 }
 
-function showGuestView(button) {
-  modalName.textContent = button.dataset.name || "";
-  modalText.innerHTML = button.dataset.text || "";
+function showGuestView(guest) {
+  modalName.textContent = guest.name;
+  modalText.textContent = guest.text;
 
-  const imgSrc = button.dataset.img;
-
-  // 画像リセット
-  modalImg.onload = null;
-  modalImg.onerror = null;
   modalImg.style.display = "none";
   modalImg.src = "";
 
-  if (imgSrc) {
-    modalImg.onload = () => {
-      modalImg.style.display = "block";
-    };
-    modalImg.onerror = () => {
-      modalImg.style.display = "none";
-    };
-    modalImg.src = imgSrc;
+  if (guest.img) {
+    modalImg.onload = () => modalImg.style.display = "block";
+    modalImg.src = guest.img;
   }
 
   seatView.classList.add("is-hidden");
@@ -57,7 +60,17 @@ function showGuestView(button) {
 // モーダル制御
 // =========================
 
-function openModal() {
+function openTable(tableId) {
+  tableTitle.textContent = `テーブル${tableId}`;
+  guestList.innerHTML = "";
+
+  tables[tableId].forEach(guest => {
+    const btn = document.createElement("button");
+    btn.textContent = guest.name;
+    btn.addEventListener("click", () => showGuestView(guest));
+    guestList.appendChild(btn);
+  });
+
   showSeatView();
   modal.style.display = "flex";
   document.body.style.overflow = "hidden";
@@ -69,14 +82,18 @@ function closeModal() {
 }
 
 // =========================
-// イベント設定
+// イベント
 // =========================
 
-tableButtons.forEach(btn => btn.addEventListener("click", openModal));
-guestButtons.forEach(btn => btn.addEventListener("click", () => showGuestView(btn)));
-backBtn.addEventListener("click", showSeatView);
+document.querySelectorAll(".table").forEach(btn => {
+  btn.addEventListener("click", () => {
+    openTable(btn.dataset.table);
+  });
+});
 
+backBtn.addEventListener("click", showSeatView);
 closeBtn.addEventListener("click", closeModal);
+
 modal.addEventListener("click", e => {
   if (e.target === modal) closeModal();
 });
