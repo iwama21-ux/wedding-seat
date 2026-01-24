@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>結婚式 座席表</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -13,16 +13,16 @@
 <div class="seat-map">
   <img src="images/seat.png" alt="座席表">
 
-  <!-- テーブル（位置はここを後から変更） -->
-  <button class="table" data-table="A" style="top:20%; left:30%;">テーブルA</button>
-  <button class="table" data-table="B" style="top:20%; left:70%;">テーブルB</button>
+  <!-- テーブルボタン -->
+  <button class="table" data-table="A" style="top:20%; left:20%;">テーブルA</button>
+  <button class="table" data-table="B" style="top:20%; left:60%;">テーブルB</button>
   <button class="table" data-table="C" style="top:40%; left:20%;">テーブルC</button>
-  <button class="table" data-table="D" style="top:40%; left:50%;">テーブルD</button>
-  <button class="table" data-table="E" style="top:40%; left:80%;">テーブルE</button>
-  <button class="table" data-table="F" style="top:60%; left:30%;">テーブルF</button>
-  <button class="table" data-table="G" style="top:60%; left:70%;">テーブルG</button>
-  <button class="table" data-table="H" style="top:80%; left:40%;">テーブルH</button>
-  <button class="table" data-table="I" style="top:80%; left:60%;">テーブルI</button>
+  <button class="table" data-table="D" style="top:40%; left:60%;">テーブルD</button>
+  <button class="table" data-table="E" style="top:60%; left:20%;">テーブルE</button>
+  <button class="table" data-table="F" style="top:60%; left:60%;">テーブルF</button>
+  <button class="table" data-table="G" style="top:80%; left:20%;">テーブルG</button>
+  <button class="table" data-table="H" style="top:80%; left:60%;">テーブルH</button>
+  <button class="table" data-table="I" style="top:50%; left:40%;">テーブルI</button>
 </div>
 
 <!-- モーダル -->
@@ -30,10 +30,11 @@
   <div class="modal-content">
     <span class="close">&times;</span>
 
-    <!-- 席一覧 -->
+    <!-- 席表示 -->
     <div class="seat-view">
       <h2 id="table-title"></h2>
       <p>お名前をタップしてください</p>
+
       <div id="guest-list"></div>
     </div>
 
