@@ -1,15 +1,14 @@
 // =========================
-// ゲストデータ（ここを編集）
+// ゲストデータ（仮）
 // =========================
 
 const tables = {};
-
 const TABLE_NAMES = ["A","B","C","D","E","F","G","H","I"];
 
 TABLE_NAMES.forEach(table => {
   tables[table] = Array.from({ length: 8 }, (_, i) => ({
     name: `ゲスト${i + 1}`,
-    img: "", // 画像があればパスを入れる
+    img: "", // 画像があればここにパス
     text: `${table}テーブルのゲスト${i + 1}です。`
   }));
 });
@@ -41,7 +40,7 @@ function showSeatView() {
 
   // 全てのゲストボタンを再表示
   document.querySelectorAll('#guest-list button').forEach(btn => {
-    btn.style.display = 'block';
+    btn.style.display = 'inline-block';
   });
 }
 
