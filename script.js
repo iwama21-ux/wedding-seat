@@ -4,7 +4,7 @@
 
 const tables = {
   "A": [
-    { name: "伊藤 博文", relation: "歴代総理", img: "images/test.png", description: "日本初代総理大臣です。" },
+    { name: "伊藤 博文", relation: "歴代総理", img: "images/test.png", description: "日本初代総理大臣です。テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト" },
     { name: "黒田 清隆", relation: "歴代総理", img: "images/test.png", description: "明治時代の総理です。" },
     { name: "山縣 有朋", relation: "歴代総理", img: "images/test.png", description: "明治期の政治家です。" }
   ],
