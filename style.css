@@ -47,7 +47,7 @@ h1 {
 .table {
   position: absolute;
   width: 40px;
-  height: 40px;
+  height: 15px;
   border: none;
   border-radius: 12px;
   cursor: pointer;
