@@ -32,7 +32,7 @@ h1 {
   height: 400px; /* 座席表領域の高さ調整 */
   
   /* 背景画像に変更 */
-  background-image: url('images/seatmap2.png');
+  background-image: url('images/seatmap.png');
   background-size: contain;         /* 親要素いっぱいに画像を表示 */
   background-position: center;    /* 中央に配置 */
   background-repeat: no-repeat;   /* 繰り返さない */
