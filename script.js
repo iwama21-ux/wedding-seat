@@ -45,7 +45,7 @@ const tables = {
     { name: "池田 勇人", relation: "歴代総理", img: "images/test.png", description: "高度経済成長期の総理です。" },
     { name: "佐藤 栄作", relation: "歴代総理", img: "images/test.png", description: "昭和後期の総理です。" },
     { name: "田中 角栄", relation: "歴代総理", img: "images/test.png", description: "昭和期の総理です。" }
-  ]
+  ],
   "I": [
     { name: "東久邇宮 稔彦王", relation: "歴代総理", img: "images/test.png", description: "昭和20年の短期総理です。" },
     { name: "幣原 喜重郎", relation: "歴代総理", img: "images/test.png", description: "戦後初期の総理です。" },
