@@ -49,8 +49,8 @@ const tables = {
     { name: "田村 理子", relation: "team.NaCoTe", img: "images/tamuriko.png", description: "昭和初期の総理です。" },
     { name: "松崎　麻友", relation: "team.NaCoTe", img: "images/ame.png", description: "昭和初期の総理です。" },
     { name: "南舘 菜七", relation: "team.NaCoTe", img: "images/nana.png", description: "昭和初期の総理です。" },
-    { name: "南舘 小春", relation: "友人娘", img: "images/hiyori.png", description: "政党内閣を築いた総理です。" },
-    { name: "南舘 日和", relation: "友人娘", img: "images/koharu.png", description: "昭和初期の総理です。" }
+    { name: "南舘 小春", relation: "友人娘", img: "images/koharu.png", description: "政党内閣を築いた総理です。" },
+    { name: "南舘 日和", relation: "友人娘", img: "images/hiyori.png", description: "昭和初期の総理です。" }
   ],
   "G": [
     { name: "山口 咲", relation: "高校時代友人", img: "images/test.png", description: "昭和20年の短期総理です。" },
@@ -66,13 +66,13 @@ const tables = {
     { name: "森 明美", relation: "親戚", img: "images/test.png", description: "昭和期の総理です。" }
   ],
   "I": [
-    { name: "岩間 サヨ", relation: "新郎祖母", img: "images/test.png", description: "昭和20年の短期総理です。" },
-    { name: "岩間 頌太朗", relation: "新郎兄", img: "images/test.png", description: "戦後初期の総理です。" },
+    { name: "岩間 サヨ", relation: "新郎祖母", img: "images/bachan.png", description: "昭和20年の短期総理です。" },
+    { name: "岩間 頌太朗", relation: "新郎兄", img: "images/ani.png", description: "戦後初期の総理です。" },
     { name: "岩間 智美", relation: "新郎義姉", img: "images/test.png", description: "戦後の総理として有名です。" },
     { name: "岩間 朱里", relation: "新郎姪", img: "images/test.png", description: "高度経済成長期の総理です。" },
     { name: "岩間 蒼斗", relation: "新郎甥", img: "images/test.png", description: "昭和後期の総理です。" },
-    { name: "岩間 孝雄", relation: "新郎父", img: "images/test.png", description: "昭和期の総理です。" },
-    { name: "岩間 圭子", relation: "新郎母", img: "images/test.png", description: "昭和期の総理です。" }
+    { name: "岩間 孝雄", relation: "新郎父", img: "images/chichi.png", description: "昭和期の総理です。" },
+    { name: "岩間 圭子", relation: "新郎母", img: "images/haha.png", description: "昭和期の総理です。" }
   ],
   "J": [
     { name: "大矢 そら", relation: "親戚", img: "images/test.png", description: "戦後の総理です。" },
