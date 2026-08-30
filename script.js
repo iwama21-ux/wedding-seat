@@ -10,14 +10,14 @@ const tables = {
     { name: "日登 広大", relation: "高専時代友人", img: "images/hinobori.png", description: "明治時代の総理です。" },
     { name: "西野 崇行", relation: "高専時代友人", img: "images/nishino.png", description: "明治期の政治家です。" },
     { name: "町屋 秀幸", relation: "高専時代友人", img: "images/machiya.png", description: "明治時代の総理です。" },
-    { name: "大島 悠太", relation: "高専時代友人", img: "images/oshima.png", description: "明治期の政治家です。" },
+    { name: "長内 大輔", relation: "高専時代先輩", img: "images/oshima.png", description: "明治期の政治家です。" },
     { name: "杉沢 直樹", relation: "後輩", img: "images/sugisawa.png", description: "明治期の政治家です。" }
   ],
   "B": [
     { name: "菅原 博人", relation: "team.NaCoTe", img: "images/hiroto.png", description: "お酒、ラーメン、バレーといえばこの男。分け隔てなくコミュニケーションを取れるのは本当に才能だと思う。こう見えて彼女を大切にしているところも点数が高い。博人在るところに笑顔あり。今後とも皆んなを引っ張っていってくれ！" },
     { name: "堀 夏樹", relation: "team.NaCoTe", img: "images/hori.png", description: "大正期の総理です。" },
-    { name: "福本 義久", relation: "team.NaCoTe", img: "images/test.png", description: "明治から大正にかけての総理です。" },
-    { name: "野村 野村", relation: "team.NaCoTe", img: "images/nomu.png", description: "日露戦争期の総理です。" },
+    { name: "福元 義久", relation: "team.NaCoTe", img: "images/test.png", description: "明治から大正にかけての総理です。" },
+    { name: "野村 規幸", relation: "team.NaCoTe", img: "images/nomu.png", description: "日露戦争期の総理です。" },
     { name: "青木・ぐー・大地", relation: "team.NaCoTe", img: "images/daichi.png", description: "仲が良くなってくるとそれに応じて口が悪くなっていくツンデレです。何を隠そう、この人は料理が超上手なんです。特に肉料理は絶品！得意料理はグーのすき焼き。また作ってくれるの期待してます！" },
     { name: "及川 大志", relation: "team.NaCoTe", img: "images/taishi.png", description: "明治時代の総理です。" },
     { name: "小澤 萌", relation: "team.NaCoTe", img: "images/megumi.png", description: "明治期の政治家です。" },
@@ -25,32 +25,36 @@ const tables = {
   ],
   "C": [
     { name: "泉 雛花", relation: "大学時代友人", img: "images/test.png", description: "第一次世界大戦期の総理です。" },
-    { name: "濱口 朝日", relation: "大学時代友人", img: "images/test.png", description: "大正期の軍人総理です。" },
+    { name: "仲野 晴香", relation: "大学時代友人", img: "images/test.png", description: "大正期の軍人総理です。" },
     { name: "松井 千春", relation: "大学時代友人", img: "images/test.png", description: "明治時代の総理です。" },
     { name: "藤田 沙帆", relation: "大学時代友人", img: "images/test.png", description: "明治期の政治家です。" },
-    { name: "深沢 弥生", relation: "大学時代友人", img: "images/test.png", description: "明治期の政治家です。" }
+    { name: "深沢 弥生", relation: "大学時代友人", img: "images/test.png", description: "明治期の政治家です。" },
+    { name: "速水 渚早", relation: "大学時代友人", img: "images/test.png", description: "明治期の政治家です。" }
   ],
   "D": [
-    { name: "坂巻 なつき", relation: "元同僚", img: "images/test.png", description: "政党内閣を築いた総理です。" },
-    { name: "明珍 結佳", relation: "元同僚", img: "images/test.png", description: "昭和初期の総理です。" }
+    { name: "伊東 絢女", relation: "元同僚", img: "images/test.png", description: "政党内閣を築いた総理です。" },
+    { name: "中村 愛美", relation: "元同僚", img: "images/test.png", description: "政党内閣を築いた総理です。" },
+    { name: "黒瀬 未帆", relation: "元同僚", img: "images/test.png", description: "昭和初期の総理です。" }
   ],
   "E": [
     { name: "浜野 竜太朗", relation: "元同僚", img: "images/hamano.png", description: "昭和期の総理です。" },
     { name: "宮田 隆平", relation: "元同僚", img: "images/ryuhe.png", description: "昭和初期の総理で暗殺されました。" },
-    { name: "手塚 手塚", relation: "元同僚", img: "images/tezuka.png", description: "昭和初期の総理です。" },
+    { name: "手塚 寛人", relation: "元同僚", img: "images/tezuka.png", description: "昭和初期の総理です。" },
     { name: "羽賀 拓人", relation: "元同僚", img: "images/haga.png", description: "昭和初期の総理です。" },
     { name: "寺島 隆太", relation: "元同僚", img: "images/teraji.png", description: "昭和初期の総理です。" },
-    { name: "齋藤 ゆり", relation: "元同僚", img: "images/yurinee.png", description: "政党内閣を築いた総理です。" },
-    { name: "吉永 亜鐘", relation: "元同僚", img: "images/akane.png", description: "昭和初期の総理です。" }
+    { name: "齋藤 友里", relation: "元同僚", img: "images/yurinee.png", description: "政党内閣を築いた総理です。" },
+    { name: "平山 亜鐘", relation: "元同僚", img: "images/akane.png", description: "昭和初期の総理です。" }
   ],
   "F": [
     { name: "田村 梨緒", relation: "team.NaCoTe", img: "images/rio.png", description: "昭和初期の総理です。" },
     { name: "高橋 楓", relation: "team.NaCoTe", img: "images/kaede.png", description: "昭和期の総理です。" },
     { name: "田村 理子", relation: "team.NaCoTe", img: "images/tamuriko.png", description: "昭和初期の総理です。" },
-    { name: "松崎　麻友", relation: "team.NaCoTe", img: "images/ame.png", description: "昭和初期の総理です。" },
-    { name: "南舘 菜七", relation: "team.NaCoTe", img: "images/nana.png", description: "昭和初期の総理です。" },
-    { name: "南舘 小春", relation: "友人娘", img: "images/koharu.png", description: "政党内閣を築いた総理です。" },
-    { name: "南舘 日和", relation: "友人娘", img: "images/hiyori.png", description: "昭和初期の総理です。" }
+    { name: "松崎 麻友", relation: "team.NaCoTe", img: "images/ame.png", description: "昭和初期の総理です。" },
+    { name: "南舘 克哉", relation: "team.NaCoTe", img: "images/ame.png", description: "昭和初期の総理です。" },
+    { name: "南舘 菜々", relation: "team.NaCoTe", img: "images/nana.png", description: "昭和初期の総理です。" },
+    { name: "南舘 こはる", relation: "友人娘", img: "images/koharu.png", description: "政党内閣を築いた総理です。" },
+    { name: "南舘 ひより", relation: "友人娘", img: "images/hiyori.png", description: "昭和初期の総理です。" },
+    { name: "南舘 うらら", relation: "team.NaCoTe", img: "images/ame.png", description: "昭和初期の総理です。" },
   ],
   "G": [
     { name: "山口 咲", relation: "高校時代友人", img: "images/test.png", description: "昭和20年の短期総理です。" },
@@ -58,14 +62,6 @@ const tables = {
     { name: "秋吉 瑞季", relation: "高校時代友人", img: "images/test.png", description: "戦後の総理として有名です。" }
   ],
   "H": [
-    { name: "水口 ゆりな", relation: "親戚", img: "images/test.png", description: "戦後の総理です。" },
-    { name: "藤田 ありさ", relation: "親戚", img: "images/test.png", description: "昭和後期の総理です。" },
-    { name: "多田 まりや", relation: "親戚", img: "images/test.png", description: "高度経済成長期の総理です。" },
-    { name: "中島 凛音", relation: "親戚", img: "images/test.png", description: "昭和後期の総理です。" },
-    { name: "中島 辰徳", relation: "親戚", img: "images/test.png", description: "昭和期の総理です。" },
-    { name: "森 明美", relation: "親戚", img: "images/test.png", description: "昭和期の総理です。" }
-  ],
-  "I": [
     { name: "岩間 サヨ", relation: "新郎祖母", img: "images/bachan.png", description: "昭和20年の短期総理です。" },
     { name: "岩間 頌太朗", relation: "新郎兄", img: "images/ani.png", description: "戦後初期の総理です。" },
     { name: "岩間 智美", relation: "新郎義姉", img: "images/test.png", description: "戦後の総理として有名です。" },
@@ -74,11 +70,20 @@ const tables = {
     { name: "岩間 孝雄", relation: "新郎父", img: "images/chichi.png", description: "昭和期の総理です。" },
     { name: "岩間 圭子", relation: "新郎母", img: "images/haha.png", description: "昭和期の総理です。" }
   ],
+  "I": [
+    { name: "水口 ゆりな", relation: "親戚", img: "images/test.png", description: "戦後の総理です。" },
+    { name: "水口 真弓", relation: "親戚", img: "images/test.png", description: "昭和後期の総理です。" },
+    { name: "水口 情次", relation: "親戚", img: "images/test.png", description: "昭和後期の総理です。" },
+    { name: "多田 まりや", relation: "親戚", img: "images/test.png", description: "高度経済成長期の総理です。" },
+    { name: "中島 凛音", relation: "親戚", img: "images/test.png", description: "昭和後期の総理です。" },
+    { name: "中島 辰徳", relation: "親戚", img: "images/test.png", description: "昭和期の総理です。" },
+    { name: "森 明美", relation: "親戚", img: "images/test.png", description: "昭和期の総理です。" }
+  ],
   "J": [
-    { name: "大矢 そら", relation: "親戚", img: "images/test.png", description: "戦後の総理です。" },
+    { name: "大矢 素来", relation: "親戚", img: "images/test.png", description: "戦後の総理です。" },
     { name: "大矢 彩生", relation: "親戚", img: "images/test.png", description: "昭和後期の総理です。" },
     { name: "大矢 聡子", relation: "新婦叔母", img: "images/test.png", description: "高度経済成長期の総理です。" },
-    { name: "大矢 ともかず", relation: "新婦叔父", img: "images/test.png", description: "昭和後期の総理です。" },
+    { name: "大矢 友和", relation: "新婦叔父", img: "images/test.png", description: "昭和後期の総理です。" },
     { name: "中山 タヅ", relation: "新婦祖母", img: "images/test.png", description: "昭和期の総理です。" },
     { name: "中島 広稀", relation: "新婦弟", img: "images/test.png", description: "昭和後期の総理です。" },
     { name: "中島 妙子", relation: "新婦母", img: "images/test.png", description: "昭和期の総理です。" },
