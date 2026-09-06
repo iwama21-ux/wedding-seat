@@ -37,7 +37,6 @@ const tables = {
     { name: "黒瀬 未帆", relation: "元同僚", img: "images/test.png", description: "昭和初期の総理です。" }
   ],
   "E": [
-    { name: "浜野 竜太朗", relation: "元同僚", img: "images/hamano.png", description: "昭和期の総理です。" },
     { name: "宮田 隆平", relation: "元同僚", img: "images/ryuhe.png", description: "昭和初期の総理で暗殺されました。" },
     { name: "手塚 寛人", relation: "元同僚", img: "images/tezuka.png", description: "昭和初期の総理です。" },
     { name: "羽賀 拓人", relation: "元同僚", img: "images/haga.png", description: "昭和初期の総理です。" },
@@ -49,7 +48,6 @@ const tables = {
     { name: "田村 梨緒", relation: "team.NaCoTe", img: "images/rio.png", description: "昭和初期の総理です。" },
     { name: "高橋 楓", relation: "team.NaCoTe", img: "images/kaede.png", description: "昭和期の総理です。" },
     { name: "田村 理子", relation: "team.NaCoTe", img: "images/tamuriko.png", description: "昭和初期の総理です。" },
-    { name: "松崎 麻友", relation: "team.NaCoTe", img: "images/ame.png", description: "昭和初期の総理です。" },
     { name: "南舘 克哉", relation: "team.NaCoTe", img: "images/ame.png", description: "昭和初期の総理です。" },
     { name: "南舘 菜々", relation: "team.NaCoTe", img: "images/nana.png", description: "昭和初期の総理です。" },
     { name: "南舘 こはる", relation: "友人娘", img: "images/koharu.png", description: "政党内閣を築いた総理です。" },
