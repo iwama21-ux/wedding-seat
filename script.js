@@ -40,7 +40,7 @@ const tables = {
     { name: "宮田 隆平", relation: "元同僚", img: "images/ryuhe.png", description: "昭和初期の総理で暗殺されました。" },
     { name: "手塚 寛人", relation: "元同僚", img: "images/tezuka.png", description: "昭和初期の総理です。" },
     { name: "羽賀 拓人", relation: "元同僚", img: "images/haga.png", description: "昭和初期の総理です。" },
-    { name: "寺島 隆太", relation: "元同僚", img: "images/teraji.png", description: "昭和初期の総理です。" },
+    { name: "寺島 隆太", relation: "元同僚", img: "images/taraji.png", description: "昭和初期の総理です。" },
     { name: "齋藤 友里", relation: "元同僚", img: "images/yurinee.png", description: "政党内閣を築いた総理です。" },
     { name: "平山 亜鐘", relation: "元同僚", img: "images/akane.png", description: "昭和初期の総理です。" }
   ],
