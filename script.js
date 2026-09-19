@@ -48,8 +48,8 @@ const tables = {
     { name: "田村 理子", relation: "NaCoTe", img: "images/tamuriko2.png", description: "たぶんですが、何事にも一生懸命に向き合って努力できる子です。比較的飲み会とかで会っている気がするので近況は結構知っているかも。またバレー終わりとか飲みに誘ってください。" },
     { name: "南舘 克哉", relation: "NaCoTe", img: "images/katsuya.png", description: "イケメンとはこの人のためにあるんじゃないかというくらいカッコいい。さらに運動神経？も良く高専時代ではバレー素人ながら、スタメンをはっていた経歴を持つ。これからもカッコいい克哉であり続けてな！" },
     { name: "南舘 菜々", relation: "NaCoTe", img: "images/nana.png", description: "克哉の嫁。というのがきっかけで仲良くなりました。とても朗らかで表情豊かな印象！年に1回くらい開催されるホームパーティいつも楽しみにしてます！またお誘いお待ちしてます" },
-    { name: "南舘 こはる", relation: "新郎友人御令嬢", img: "images/koharu.png", description: "南舘家の長女。可愛すぎる！可愛いは世界を救う！会う度に成長していて、気がつけばもう小学生！？これからの人生に幸あれ！" },
-    { name: "南舘 ひより", relation: "新郎友人御令嬢", img: "images/hiyori.png", description: "南舘家の次女。尊すぎる！尊いは世界を変える！会う度に成長していて、気がつけばもう年中さん！？これからの人生に幸あれ！" },
+    { name: "南舘 こはる", relation: "新郎友人御令嬢", img: "images/koharu2.png", description: "南舘家の長女。可愛すぎる！可愛いは世界を救う！会う度に成長していて、気がつけばもう小学生！？これからの人生に幸あれ！" },
+    { name: "南舘 ひより", relation: "新郎友人御令嬢", img: "images/hiyori2.png", description: "南舘家の次女。尊すぎる！尊いは世界を変える！会う度に成長していて、気がつけばもう年中さん！？これからの人生に幸あれ！" },
     { name: "南舘 うらら", relation: "新郎友人御令嬢", img: "images/urara.png", description: "南舘家の三女。麗しすぎる！麗しいは世界を平和にする！まだ会ったことがないのではじめましてです！これからの人生に幸あれ！" }
   ],
   "G": [
